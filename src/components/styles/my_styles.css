@@ -124,7 +124,7 @@ body {
     letter-spacing: 4px;
     border-radius: 0;
     font-family: Montserrat, sans-serif;
-    /*height: auto;*/
+    height: auto;
   }
   .navbar li a, .navbar .navbar-brand {
     color: #fff !important;
