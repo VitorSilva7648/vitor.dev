@@ -7,7 +7,7 @@ function About() {
  
   return (
     <div style={{ backgroundColor: 'white' }}>
-    <div className="componente-seguinte">
+    
     <div id="about" className="container-fluid">
       <div className="row">
         <div className="col-sm-8">
@@ -47,7 +47,7 @@ function About() {
             <div className="row">
               <div className="col-sm-6">
               <div style={{ textAlign: 'left' }}>
-                <img style={{ float: 'left' }} src={self} alt="My Image" className="logo-img" width="170" height="220" />
+                <img src={self} alt="My Image" className="logo-img" width="170" height="220" />
                 <br/><br/>
               </div>
               </div>
@@ -75,7 +75,7 @@ function About() {
       </div>
     </div>   
     </div>  
-    </div>
+    
   );
 }
 

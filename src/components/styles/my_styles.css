@@ -22,11 +22,12 @@ body {
   background-color: #f4511e;
   color: #fff;
   padding: 100px 55px;
-  font-family: Montserrat, sans-serif;
-  position: absolute;
-  left: 0;
-  width: 105%;
+  /*font-family: Montserrat, sans-serif;
+  position: absolute;*/
 }
+
+
+
 .componente-seguinte {
   margin-top: 270px; /* Ajuste conforme necessário */
 }
