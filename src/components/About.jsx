@@ -7,7 +7,7 @@ function About() {
  
   return (
     <div style={{ backgroundColor: 'white' }}>
-    
+  
     <div id="about" className="container-fluid">
       <div className="row">
         <div className="col-sm-8">
@@ -47,15 +47,19 @@ function About() {
             <div className="row">
               <div className="col-sm-6">
               <div style={{ textAlign: 'left' }}>
+                <div className='container-photo'>
                 <img src={self} alt="My Image" className="logo-img" width="170" height="220" />
                 <br/><br/>
+                </div>
               </div>
               </div>
               <div className="col-sm-6">
+                <div className='logo-description'>
                 <p style={{ textAlign: 'left' }}>Name: Vitor Hugo Silva Gonçalves </p>
                 <p style={{ textAlign: 'left' }}>Profile: Developer </p>
                 <p style={{ textAlign: 'left' }}>Email: vitor.goncalves@ufu.br </p>
                 <p style={{ textAlign: 'left' }}>Phone: (34) 99789-7624</p>
+              </div>
               </div>
             </div>
           </div>
@@ -75,7 +79,7 @@ function About() {
       </div>
     </div>   
     </div>  
-    
+   
   );
 }
 

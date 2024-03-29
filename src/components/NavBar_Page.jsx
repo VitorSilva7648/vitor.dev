@@ -45,7 +45,7 @@ import './styles/my_styles.css';
 function CustomNavbar() {
   return (
 
-    <Navbar bg="orange" expand="lg" variant="dark" fixed="top">
+    <Navbar bg="orange" expand="lg" variant="dark" >
     <Navbar.Brand href="#home">Vitor Silva</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

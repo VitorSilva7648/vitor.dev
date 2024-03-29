@@ -7,11 +7,12 @@ import Card from 'react-bootstrap/Card';
 
 function Portfolio() {
   return (
-    <div style={{ backgroundColor: 'white' }}>
-    <Container id="portfolio" className="text-center bg-grey">
+       
+      <div id="portfolio" className="text-center bg-grey">
       <br/>
       <h2>Portfolio</h2>
       <p>What I created</p>
+      <Container>
       <Row>
         <Col>
           <div className="thumbnail">
@@ -60,8 +61,9 @@ function Portfolio() {
           < br />< br />
         </Col>
       </Row>
-    </Container>
-    </div>
+      </Container>
+      </div>
+    
   );
 }
 
