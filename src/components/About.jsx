@@ -6,6 +6,7 @@ import './styles/my_styles.css';
 function About() {
  
   return (
+    <div style={{ backgroundColor: 'white' }}>
     <div className="componente-seguinte">
     <div id="about" className="container-fluid">
       <div className="row">
@@ -45,8 +46,10 @@ function About() {
           <div className="col-sm-5">
             <div className="row">
               <div className="col-sm-6">
+              <div style={{ textAlign: 'left' }}>
                 <img style={{ float: 'left' }} src={self} alt="My Image" className="logo-img" width="170" height="220" />
                 <br/><br/>
+              </div>
               </div>
               <div className="col-sm-6">
                 <p style={{ textAlign: 'left' }}>Name: Vitor Hugo Silva Gonçalves </p>
@@ -72,13 +75,8 @@ function About() {
       </div>
     </div>   
     </div>  
-
+    </div>
   );
 }
 
 export default About;
-
-
-/**
- *      
- */

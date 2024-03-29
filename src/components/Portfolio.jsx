@@ -3,20 +3,11 @@ import { Container, Row, Col } from 'react-bootstrap';
 import chat_image from './imagens/chat.png';
 import automacao_image from './imagens/automacao.jfif';
 import banco_image from './imagens/banco.jfif';
-
-//import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
-
-/**
-            <img src={chat_image} alt="chat" width="400" height="300" />
-            <p><strong>Chat platform</strong></p>
-            <p>Web Platform / 15 Jan. 2024</p>
-          </div> */
-
 
 function Portfolio() {
   return (
+    <div style={{ backgroundColor: 'white' }}>
     <Container id="portfolio" className="text-center bg-grey">
       <br/>
       <h2>Portfolio</h2>
@@ -70,6 +61,7 @@ function Portfolio() {
         </Col>
       </Row>
     </Container>
+    </div>
   );
 }
 

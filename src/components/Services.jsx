@@ -31,6 +31,7 @@ import './styles/my_styles.css';
 
 function Services() {
   return (
+    <div style={{ backgroundColor: 'white' }}>
     <Container  id="services">
       <h2>SERVICES</h2>
       <h6>What we offer</h6><br/><br/>
@@ -68,6 +69,7 @@ function Services() {
       </Row>
       <br/><br/>
     </Container>
+    </div>
   );
 }
 
