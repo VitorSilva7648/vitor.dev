@@ -22,16 +22,15 @@ body {
   background-color: #f4511e;
   color: #fff;
   padding: 100px 55px;
-  /*font-family: Montserrat, sans-serif;
-  position: absolute;*/
+  font-family: Montserrat, sans-serif;
+  left: 0;
+  position: absolute;
+  width: 115%;
 }
-
-
 
 .componente-seguinte {
   margin-top: 270px; /* Ajuste conforme necessário */
 }
-
   .container-fluid {
     padding: 60px 50px;
   }
@@ -154,7 +153,6 @@ body {
 
   .logo-description {
     font-size: 16px;
-    
     margin-top: 0;
     margin-left: -50px; /* Ajuste conforme necessário */
 }
@@ -172,7 +170,6 @@ body {
 }
 
 .container-photo {
- 
   margin-top: 0;
   margin-left: -35px; /* Ajuste conforme necessário */
 }

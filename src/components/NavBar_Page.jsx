@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import './styles/my_styles.css';
 
 /**
@@ -43,9 +44,9 @@ import './styles/my_styles.css';
 
 
 function CustomNavbar() {
-  return (
-
-    <Navbar bg="orange" expand="lg" variant="dark" >
+  return (  
+    <Container>
+    <Navbar bg="orange" expand="lg" variant="dark" fixed="top">
     <Navbar.Brand href="#home">Vitor Silva</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -57,6 +58,7 @@ function CustomNavbar() {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
+    </Container>
 
 );
 }

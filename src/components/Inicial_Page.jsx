@@ -4,15 +4,11 @@ import './styles/my_styles.css'; // Importando o arquivo CSS
 
 function CustomJumbotron() {
   return (
-          
       
-        <div className="jumbotron text-center">
-            <h1>Welcome</h1>
-            <p>I'm Vitor Silva</p>
-          </div>
-      
-    
-
+      <div className="jumbotron ">
+        <h1 className="text-center">Welcome</h1>
+        <p className="text-center">I'm Vitor Silva, developer full stack</p>
+      </div>
   );
 }
 

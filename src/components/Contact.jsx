@@ -7,7 +7,8 @@ import mail_image from './imagens/mail.jfif';
 function Contact() {
   return (
     <div style={{ backgroundColor: 'white' }}>
-    <Container id="contact" className="bg-grey">
+    <div id="contact" className="bg-grey">
+      <Container>
       <h2 className="text-center">Send me a message</h2>< br />
       <Row>
         <Col>
@@ -32,6 +33,7 @@ function Contact() {
         </Col>
       </Row>
     </Container>
+    </div>
     </div>
   );
 }

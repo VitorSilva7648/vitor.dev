@@ -32,7 +32,9 @@ import './styles/my_styles.css';
 function Services() {
   return (
     <div style={{ backgroundColor: 'white' }}>
-    <Container  id="services">
+    <div  id="services">
+      <Container>
+      <br/><br/>
       <h2>SERVICES</h2>
       <h6>What we offer</h6><br/><br/>
       <Row>
@@ -69,6 +71,7 @@ function Services() {
       </Row>
       <br/><br/>
     </Container>
+    </div>
     </div>
   );
 }
