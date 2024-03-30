@@ -5,10 +5,6 @@ import maps_image from './imagens/maps.jfif';
 import phone_image from './imagens/phone.jfif';
 import mail_image from './imagens/mail.jfif';
 
-const serviceId = 'service_xtcjer6';
-const templateId = 'template_jfq6bu5';
-const publicKey ='56ZSdEbeE-Y1k3iZK';
-
 function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -16,6 +12,10 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const serviceId = 'service_xtcjer6';
+    const templateId = 'template_jfq6bu5';
+    const publicKey ='56ZSdEbeE-Y1k3iZK';
 
     const templateParams = {
       form_name: name,
