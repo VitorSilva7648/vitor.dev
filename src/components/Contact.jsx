@@ -1,9 +1,35 @@
 import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import emailjs from '@emailjs/browser';
 import maps_image from './imagens/maps.jfif';
 import phone_image from './imagens/phone.jfif';
 import mail_image from './imagens/mail.jfif';
 
+// Your EmailJS service ID, templated ID, Public KeyID
+const serviceId = 'service_xtcjer6';
+const templateId = 'template_jfq6bu5';
+const publicKey ='56ZSdEbeE-Y1k3iZK';
+
+// Create a new object that contains dynamic template params
+
+const templateParams = {
+  form_name: name,
+  form_email: email,
+  to_name: 'Web Wizard',
+  message: message,
+}
+
+// Send the email sing EmailJS
+emailjs.send(serviceId, templateId, templateParams, publicKey)
+  .then((response) => {
+    console.log('Email sent successfully!', response);
+    setName('');
+    setEmail('');
+    setMessage('');
+  })
+  .catch((error) => {
+    console.error('Error sending email:', error);
+  })
 function Contact() {
   return (
     <div style={{ backgroundColor: 'white' }}>
