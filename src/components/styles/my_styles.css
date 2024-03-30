@@ -25,14 +25,17 @@ body {
   font-family: Montserrat, sans-serif;
   left: 0;
   position: absolute;
-  width: 115%;
+  width: 100%;
 }
 
 .componente-seguinte {
-  margin-top: 270px; /* Ajuste conforme necessário */
+  margin-top: 370px; /* Ajuste conforme necessário */
 }
+
   .container-fluid {
-    padding: 60px 50px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
   }
   .bg-grey {
     background-color: #f6f6f6;
@@ -154,7 +157,7 @@ body {
   .logo-description {
     font-size: 16px;
     margin-top: 0;
-    margin-left: -60px; /* Ajuste conforme necessário */
+    margin-left: -50px; /* Ajuste conforme necessário */
 }
 
 .justify-list {
@@ -171,5 +174,5 @@ body {
 
 .container-photo {
   margin-top: 0;
-  margin-left: -35px; /* Ajuste conforme necessário */
+  margin-left: 10px; /* Ajuste conforme necessário */
 }
