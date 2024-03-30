@@ -29,7 +29,7 @@ body {
 }
 
 .componente-seguinte {
-  margin-top: 370px; /* Ajuste conforme necessário */
+  margin-top: 330px; /* Ajuste conforme necessário */
 }
 
   .container-fluid {
@@ -157,7 +157,7 @@ body {
   .logo-description {
     font-size: 16px;
     margin-top: 0;
-    margin-left: -50px; /* Ajuste conforme necessário */
+    margin-left: 10px; /* Ajuste conforme necessário */
 }
 
 .justify-list {
@@ -173,6 +173,7 @@ body {
 }
 
 .container-photo {
-  margin-top: 0;
+  margin-top: 150;
   margin-left: 10px; /* Ajuste conforme necessário */
+
 }

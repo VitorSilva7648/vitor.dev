@@ -51,6 +51,7 @@ function CustomNavbar() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ marginLeft: 'auto' }}>
+        <Nav.Link href="#home">HOME</Nav.Link>
           <Nav.Link href="#about">ABOUT</Nav.Link>
           <Nav.Link href="#services">SERVICES</Nav.Link>
           <Nav.Link href="#portfolio">PORTFOLIO</Nav.Link>
