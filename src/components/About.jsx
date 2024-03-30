@@ -42,8 +42,7 @@ function About() {
         </div>
         <div className="col-sm-4 ">
           <img src={about} alt="about me" className="logo-img1" width="300" height="330" /><br/><br/><br/>
-        </div>
-      
+        </div>     
       </div>      
     </div>  
     </div>
