@@ -31,10 +31,11 @@ function About() {
           <br />
           <h4 style={{ textAlign: 'left' }}>Skill</h4>
           <ul>
-            <li style={{ textAlign: 'left' }} ><strong>Backend:</strong> C, Python, C#</li>
-            <li style={{ textAlign: 'left' }}><strong>Frontend:</strong> JavaScript, HTML, React, CSS</li>
-            <li style={{ textAlign: 'left' }}><strong>Banco de dados:</strong> PostGresql</li>
-            <li style={{ textAlign: 'left' }}><strong>Business Intelligence:</strong> PowerBI</li>
+            <li style={{ textAlign: 'left' }} ><strong>Backend:</strong> C, Python, C# </li>
+            <li style={{ textAlign: 'left' }}><strong>Frontend:</strong> JavaScript, HTML, React, CSS </li>
+            <li style={{ textAlign: 'left' }}><strong>Banco de dados:</strong> PostGresql </li>
+            <li style={{ textAlign: 'left' }}><strong>Business Intelligence:</strong> PowerBI </li>
+            <li style={{ textAlign: 'left' }}><strong>Cloud Computing:</strong> AWS </li>
           </ul>
 
           <br />
