@@ -37,7 +37,6 @@ function About() {
             <li style={{ textAlign: 'left' }}><strong>Business Intelligence:</strong> PowerBI </li>
             <li style={{ textAlign: 'left' }}><strong>Cloud Computing:</strong> AWS </li>
           </ul>
-
           <br />
         
         </div>
