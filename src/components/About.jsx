@@ -33,11 +33,8 @@ function About() {
           <ul>
             <li style={{ textAlign: 'left' }} ><strong>Ferramentas:</strong> C# | C | Pytohn | Java | PostgreSQL | HTML | Docker | CSS | React | React Native | Javascript | Git | AWS cloud computing | PowerBI
             </li>
-            <li style={{ textAlign: 'left' }}><strong>Frontend:</strong> JavaScript, HTML, React, CSS </li>
-            <li style={{ textAlign: 'left' }}><strong>Banco de dados:</strong> PostGresql </li>
-            <li style={{ textAlign: 'left' }}><strong>Cloud Computing:</strong> Architecture AWS </li>
-            <li style={{ textAlign: 'left' }}><strong>Business Intelligence:</strong> PowerBI </li>
-          </ul>
+            <li style={{ textAlign: 'left' }}><strong>Banco de dados:</strong> PostGresql | MongoDb - Estudando </li>
+            </ul>
           <br />
         
         </div>
