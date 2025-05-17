@@ -44,6 +44,15 @@ function Services() {
               </div>
             </div>
           </Carousel.Item>
+          <Carousel.Item>
+            <div style={{ textAlign: 'center' }}>
+              <img src={mobile_image} alt="developed_mobile" width="200" height="200" />
+              <div>
+                <h4>MOBILE APPLICATION DEVELOPMENT</h4>
+                <p>Mobile application development is the process of creating apps for iOS and Android devices, focusing on user-friendly interfaces, performance, and seamless integration with external services. Using technologies like React Native, I build responsive and efficient mobile apps that work across multiple platforms.</p>
+              </div>
+            </div>
+          </Carousel.Item>
         </Carousel>
       </Row>
       <br/><br/>
