@@ -5,6 +5,7 @@ import web_image from './imagens/web.jfif';
 import cloud_image from './imagens/cloud.jfif';
 import Carousel from 'react-bootstrap/Carousel';
 import './styles/my_styles.css'; 
+import mobile_image from './imagens/developed_mobile.jpeg';
 
 function Services() {
   return (
