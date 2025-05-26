@@ -5,7 +5,7 @@ import web_image from './imagens/web.jfif';
 import cloud_image from './imagens/cloud.jfif';
 import Carousel from 'react-bootstrap/Carousel';
 import './styles/my_styles.css'; 
-import mobile_image from './imagens/developed_mobile.jpeg';
+import mobile_image from './imagens/developed_mobile.png';
 
 function Services() {
   return (
@@ -47,7 +47,7 @@ function Services() {
           </Carousel.Item>
           <Carousel.Item>
             <div style={{ textAlign: 'center' }}>
-              <img src={mobile_image} alt="developed_mobile" width="200" height="300" />
+              <img src={mobile_image} alt="developed_mobile" width="300" height="150" />
               <div>
                 <h4>MOBILE APPLICATION DEVELOPMENT</h4>
                 <p>Mobile application development is the process of creating apps for iOS and Android devices, focusing on user-friendly interfaces, performance, and seamless integration with external services. Using technologies like React Native, I build responsive and efficient mobile apps that work across multiple platforms.</p>

@@ -31,9 +31,9 @@ function About() {
           <br />
           <h4 style={{ textAlign: 'left' }}>Skill</h4>
           <ul>
-            <li style={{ textAlign: 'left' }} ><strong>Ferramentas:</strong> C# | C | Pytohn | Java | PostgreSQL | HTML | Docker | CSS | React | React Native | Javascript | Git | AWS cloud computing | PowerBI
+            <li style={{ textAlign: 'left' }} ><strong>Tools:</strong> C# | C | Pytohn | Java | PostgreSQL | HTML | Docker | CSS | React | React Native | Javascript | Git | AWS cloud computing | PowerBI
             </li>
-            <li style={{ textAlign: 'left' }}><strong>Banco de dados:</strong> PostGresql | MongoDb - Estudando </li>
+            <li style={{ textAlign: 'left' }}><strong>Database:</strong> PostGresql | MongoDb - Studying </li>
             </ul>
           <br />
         
