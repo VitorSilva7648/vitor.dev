@@ -1,67 +1,66 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Carousel, Card } from 'react-bootstrap';
 import database_image from './imagens/database.jpg';
 import web_image from './imagens/web.jfif';
 import cloud_image from './imagens/cloud.jfif';
-import Carousel from 'react-bootstrap/Carousel';
-import './styles/my_styles.css'; 
 import mobile_image from './imagens/developed_mobile.png';
+import './styles/my_styles.css';
 
 function Services() {
   return (
-    <div style={{ backgroundColor: 'white' }}>
-    <div  id="services">
+    <section id="services" className="py-5" style={{ backgroundColor: 'var(--bg-color)' }}>
       <Container>
-      <br/><br/>
-      <h2>SERVICES</h2>
-      <h6>What is offered</h6><br/><br/>
-      <Row>
-        <Carousel data-bs-theme="dark" style={{ width: '100%', maxWidth: '800px', margin: '0 auto' }}>
-          <Carousel.Item>
-            <div style={{ textAlign: 'center' }}>
-              <img src={database_image} alt="database" width="200" height="200" />
-              <div>
-                <br/>
-                <h4>DATABASE MANAGEMENT</h4>
-                <p>Managing Databases is the art of organizing, optimizing and securing data.</p>
-              </div>
-            </div>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div style={{ textAlign: 'center' }}>
-              <img src={web_image} alt="web" width="200" height="200" />
-              <div>
-                <h4>WEB APPLICATION DEVELOPMENT</h4>
-                <p>Web Application Development is the process of creating interactive and efficient solutions for the web.</p>
-              </div>
-            </div>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div style={{ textAlign: 'center' }}>
-              <img src={cloud_image} alt="cloud" width="200" height="200" />
-              <div>
-                <h4>CLOUD COMPUTING</h4>
-                <p>Cloud computing offers scalable, on-demand access to computing resources over the internet.</p>
-              </div>
-            </div>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div style={{ textAlign: 'center' }}>
-              <img src={mobile_image} alt="developed_mobile" width="300" height="150" />
-              <div>
-                <h4>MOBILE APPLICATION DEVELOPMENT</h4>
-                <p>Mobile application development is the process of creating apps for iOS and Android devices, focusing on user-friendly interfaces, performance, and seamless integration with external services. Using technologies like React Native, I build responsive and efficient mobile apps that work across multiple platforms.</p>
-              </div>
-            </div>
-          </Carousel.Item>
-        </Carousel>
-      </Row>
-      <br/><br/>
-    </Container>
-    </div>
-    </div>
+        <div className="text-center mb-5">
+          <h2 className="display-5 fw-bold">Services</h2>
+          <p className="lead text-secondary">What I offer</p>
+        </div>
+
+        <Row className="justify-content-center">
+          <Col lg={10}>
+            <Carousel data-bs-theme="dark" className="service-carousel shadow-sm rounded-3 overflow-hidden" style={{ backgroundColor: 'var(--surface-color)' }}>
+              {[
+                {
+                  title: "Database Management",
+                  desc: "Organizing, optimizing and securing data efficienttly.",
+                  img: database_image
+                },
+                {
+                  title: "Web Application Development",
+                  desc: "Creating interactive and efficient solutions for the web using modern stacks.",
+                  img: web_image
+                },
+                {
+                  title: "Cloud Computing",
+                  desc: "Scalable, on-demand access to computing resources over the internet.",
+                  img: cloud_image
+                },
+                {
+                  title: "Mobile App Development",
+                  desc: "Creating responsive and efficient mobile apps for iOS and Android.",
+                  img: mobile_image
+                }
+              ].map((service, idx) => (
+                <Carousel.Item key={idx} className="p-5 text-center">
+                  <div className="d-flex justify-content-center mb-4">
+                    <img
+                      src={service.img}
+                      alt={service.title}
+                      className="rounded-circle shadow"
+                      style={{ width: '150px', height: '150px', objectFit: 'cover' }}
+                    />
+                  </div>
+                  <h3 className="fw-bold mb-3">{service.title}</h3>
+                  <p className="lead text-secondary mx-auto" style={{ maxWidth: '600px' }}>
+                    {service.desc}
+                  </p>
+                </Carousel.Item>
+              ))}
+            </Carousel>
+          </Col>
+        </Row>
+      </Container>
+    </section>
   );
 }
 
 export default Services;
-

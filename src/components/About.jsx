@@ -1,51 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import about from './imagens/OIP.jfif';
-import self from './imagens/SELF.jpeg';
-import './styles/my_styles.css'; 
+// import self from './imagens/SELF.jpeg'; // Unused
+import './styles/my_styles.css';
 
 function About() {
- 
   return (
-  <div className='componente-seguinte'>
-    
-    <div>
-    <div id="about" className="container-fluid">
-      <div className="row">
-        <div className="col-sm-8">
-        
-          <h2 style={{ textAlign: 'left' }}>About me</h2>
-          <p style={{ textAlign: 'justify' }}>Hello! My name is Vitor Silva, and I am a Computer Engineering student at the renowned Federal University 
-              of Uberlândia (UFU). From an early age, my fascination with technology and computing drove me to seek 
-              knowledge in this constantly evolving area. I have had the privilege of immersing myself in a dynamic and 
-              challenging academic environment, where I have explored several fundamental disciplines, from algorithms 
-              and data structures to embedded systems and artificial intelligence. Furthermore, I have actively 
-              participated in research projects and extracurricular activities that enrich my academic experience.
-          </p>
-          <p style={{ textAlign: 'justify' }}>I'm driven by the desire to contribute meaningfully to projects that push the boundaries of what's 
-              possible in the realm of Computer Engineering. Eager to embrace new opportunities that promise to enrich 
-              my skill set, I invite you to connect with me as we embark on an exhilarating journey through the 
-              ever-evolving landscape of technology. Let's explore the exciting possibilities awaiting us in the world of
-              Computer Engineering together.
-          </p>
-          <br />
-          <h4 style={{ textAlign: 'left' }}>Skill</h4>
-          <ul>
-            <li style={{ textAlign: 'left' }} ><strong>Tools:</strong> C# | C | Pytohn | Java | PostgreSQL | HTML | Docker | CSS | React | React Native | Javascript | Git | AWS cloud computing | PowerBI
-            </li>
-            <li style={{ textAlign: 'left' }}><strong>Database:</strong> PostGresql | MongoDb - Studying </li>
-            </ul>
-          <br />
-        
-        </div>
-        <div className="col-sm-4 ">
-          <img src={about} alt="about me" className="logo-img1" width="300" height="330" /><br/><br/><br/>
-        </div>     
-      </div>      
-    </div>  
-    </div>
-    </div>  
-   
+    <section id="about" className="py-5">
+      <Container>
+        <Row className="align-items-center">
+          <Col lg={8}>
+            <h2 className="mb-4 display-5 fw-bold text-start">About me</h2>
+            <div className="lead text-secondary text-justify mb-4" style={{ textAlign: 'justify' }}>
+              <p>
+                Hello! My name is Vitor Silva, and I am a Computer Engineering student at the renowned Federal University
+                of Uberlândia (UFU). From an early age, my fascination with technology and computing drove me to seek
+                knowledge in this constantly evolving area. I have had the privilege of immersing myself in a dynamic and
+                challenging academic environment, where I have explored several fundamental disciplines, from algorithms
+                and data structures to embedded systems and artificial intelligence.
+              </p>
+              <p>
+                I'm driven by the desire to contribute meaningfully to projects that push the boundaries of what's
+                possible in the realm of Computer Engineering. Eager to embrace new opportunities that promise to enrich
+                my skill set, I invite you to connect with me as we embark on an exhilarating journey through the
+                ever-evolving landscape of technology.
+              </p>
+            </div>
+
+            <h4 className="mb-3 fw-bold">Skills & Tools</h4>
+            <div className="mb-4">
+              <p className="mb-2"><strong>Languages & Frameworks:</strong> C# | Python | Java | React | React Native | Javascript | Typescript</p>
+              <p className="mb-2"><strong>Database:</strong> PostgreSQL | MongoDB </p>
+              <p><strong>Tools:</strong> PowerBI | Git</p>
+            </div>
+          </Col>
+          <Col lg={4} className="text-center">
+            <img
+              src={about}
+              alt="Programming Illustration"
+              className="img-fluid rounded-3 shadow-lg"
+              style={{ maxHeight: '400px', objectFit: 'cover' }}
+            />
+          </Col>
+        </Row>
+      </Container>
+    </section>
   );
 }
 

@@ -1,53 +1,53 @@
-import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
-import about from './imagens/OIP.jfif';
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import self from './imagens/SELF.jpeg';
-import './styles/my_styles.css'; 
+import './styles/my_styles.css';
 
 function About1() {
- 
   return (
-
-        <div className="container-fluid bg-grey">
-      
-          <div className="row">
-          <div className="col-sm-5">
-            <div className="row">
-              <div className="col-sm-6">
-              <br/>
-                <div className='container-photo'>
-                <img src={self} alt="My Image" className="logo-img" width="170" height="220" />
-                <br/><br/>
-                
-              </div>
-              </div>
-              <div className="col-sm-6">
-                <div className='logo-description'>
-                <br/>
-                <p style={{ textAlign: 'left' }}>Name: Vitor Hugo Silva Gonçalves </p>
-                <p style={{ textAlign: 'left' }}>Profile: Developer </p>
-                <p style={{ textAlign: 'left' }}>Email: vitor.goncalves@ufu.br </p>
-                <p style={{ textAlign: 'left' }}>Phone: (34) 99789-7624</p>
-              </div>
+    <section className="py-5" style={{ backgroundColor: 'var(--surface-color)' }}>
+      <Container>
+        <Row className="align-items-center g-5">
+          <Col lg={5}>
+            <div className="d-flex flex-column flex-md-row align-items-center gap-4 p-4 rounded-3 shadow-sm" style={{ backgroundColor: 'var(--bg-color)', border: '1px solid rgba(255,255,255,0.05)' }}>
+              <img
+                src={self}
+                alt="Vitor Hugo Profile"
+                className="rounded-circle shadow"
+                width="150"
+                height="150"
+                style={{ objectFit: 'cover' }}
+              />
+              <div className="text-center text-md-start">
+                <h4 className="fw-bold mb-1">Vitor Hugo Silva Gonçalves</h4>
+                <p className="text-primary mb-2 fw-medium">Full Stack Developer</p>
+                <div className="small text-secondary">
+                  <p className="mb-1">vitor.goncalves@ufu.br</p>
+                  <p className="mb-0">(34) 99789-7624</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-sm-7">
-            <br/>
-            <h2>Values</h2>
-            <ul >
-              <li  style={{ textAlign: 'left' }}>Organization and management of tasks, ensuring efficient and on-time completion.</li>
-              <li  style={{ textAlign: 'left' }}>Ability to make critical and informed decisions, evaluating alternatives and considering 
-                the risks involved to reach effective solutions.</li>
-              <li  style={{ textAlign: 'left' }}>Adaptability to new situations and environments, being able to deal with changes and find 
-                flexible solutions.</li>
-              <li  style={{ textAlign: 'left' }}>Curiosity and thirst for learning, continually seeking to update knowledge and personal 
-                development.</li>
+          </Col>
+          <Col lg={7}>
+            <h3 className="mb-4 fw-bold">Core Values</h3>
+            <ul className="list-unstyled d-grid gap-3">
+              {[
+                "Organization and management of tasks, ensuring efficient and on-time completion.",
+                "Ability to make critical and informed decisions, evaluating alternatives and risks.",
+                "Adaptability to new situations and environments, finding flexible solutions.",
+                "Curiosity and thirst for learning, continually seeking to update knowledge."
+              ].map((item, index) => (
+                <li key={index} className="d-flex align-items-start">
+                  <span className="me-3 text-primary h5">✓</span>
+                  <span className="text-secondary lead" style={{ fontSize: '1rem' }}>{item}</span>
+                </li>
+              ))}
             </ul>
-            </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
+    </section>
   );
 }
-export default About1;      
-   
+
+export default About1;
