@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import about from './imagens/OIP.jfif';
-// import self from './imagens/SELF.jpeg'; // Unused
+import about from './imagens/developer_workspace.png';
 import './styles/my_styles.css';
 
 function About() {
