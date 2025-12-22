@@ -1,83 +1,13 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Badge, Button, Modal } from 'react-bootstrap';
-import { FaComments, FaRobot, FaDatabase, FaMobileAlt, FaLaptopCode } from 'react-icons/fa';
+import { FaMobileAlt, FaGlobe, FaRobot } from 'react-icons/fa';
 
 const projects = [
-  /* {
+  {
     id: 1,
-    title: "Chat Platform",
-    description: "Real-time communication platform built with modern web technologies.",
-    tech: ["React", "Node.js", "Socket.io"],
-    icon: <FaComments size={80} className="text-primary" />,
-    role: "Web Platform",
-    demoCode: `
-// CLIENT-SIDE EVENT LISTENER
-socket.on('receive_message', (data) => {
-  setMessages((prev) => [...prev, data]);
-  scrollToBottom();
-});
-
-// SERVER-SIDE EMITTER
-io.on('connection', (socket) => {
-  socket.on('send_message', (data) => {
-    io.emit('receive_message', data);
-  });
-});
-    `,
-    language: "javascript"
-  },
-  {
-    id: 2,
-    title: "Service Automation Bot",
-    description: "Automated service bot to streamline customer interactions.",
-    tech: ["Python", "NLP", "Web Automation"],
-    icon: <FaRobot size={80} className="text-primary" />,
-    role: "Automation",
-    demoCode: `
-# INTENT RECOGNITION
-def get_intent(user_input):
-    processed_text = preprocess(user_input)
-    prediction = model.predict([processed_text])
-    
-    if prediction.confidence > 0.85:
-        return prediction.label
-    else:
-        return "fallback_intent"
-
-# RESPONSE GENERATION
-def handle_request(intent):
-    responses = load_responses()
-    return responses.get(intent, "I didn't understand that.")
-    `,
-    language: "python"
-  },
-  {
-    id: 3,
-    title: "Database Management",
-    description: "Robust database architecture and management system optimized for performance.",
-    tech: ["SQL", "PostgreSQL", "Data Design"],
-    icon: <FaDatabase size={80} className="text-primary" />,
-    role: "Database",
-    demoCode: `
--- OPTIMIZED USER QUERY
-SELECT 
-    u.id, 
-    u.username, 
-    COUNT(o.id) as total_orders
-FROM users u
-LEFT JOIN orders o ON u.id = o.user_id
-WHERE u.status = 'active'
-      AND o.created_at > NOW() - INTERVAL '30 days'
-GROUP BY u.id
-ORDER BY total_orders DESC;
-    `,
-    language: "sql"
-  }, */
-  {
-    id: 4,
-    title: "Mobile App Development",
-    description: "Cross-platform mobile application designed for high user engagement.",
-    tech: ["React Native", "Mobile", "UX/UI"],
+    title: "Mobile Applications Suite",
+    description: "Two production React Native apps: AI-powered nutrition assistant with Gemini AI integration and Bluetooth-enabled animal management system with PDF reporting.",
+    tech: ["React Native", "Gemini AI", "Bluetooth", "PDF Generation", "SQLite", "Context API"],
     icon: <FaMobileAlt size={80} className="text-primary" />,
     role: "Mobile App",
     demoCode: `
@@ -101,11 +31,11 @@ const UserProfile = ({ user }) => {
     language: "jsx"
   },
   {
-    id: 5,
-    title: "Web Development",
-    description: "Full-stack web solutions combining responsive frontend design with scalable backend architectures.",
-    tech: ["React", "Node.js", "Express", "PostgreSQL"],
-    icon: <FaLaptopCode size={80} className="text-primary" />,
+    id: 2,
+    title: "Web Development & DevOps",
+    description: "Full-stack web solutions and deployment pipelines. Built responsive websites, managed domains/SSL, and deployed on Vercel/Turbo Cloud for clients.",
+    tech: ["React", "Node.js", "Vercel", "Cloudflare", "PostgreSQL", "CI/CD"],
+    icon: <FaGlobe size={80} className="text-primary" />,
     role: "Full Stack",
     demoCode: `
 // API ROUTE HANDLER (Express)
@@ -129,6 +59,83 @@ router.post('/api/orders', authMiddleware, async (req, res) => {
 });
     `,
     language: "javascript"
+  },
+  {
+    id: 3,
+    title: "Process Automation Engine",
+    description: "Custom automation scripts that eliminated 70% of manual tasks for clients through data extraction, report generation, and system integration using Python/Node.js.",
+    tech: ["Python", "Node.js", "Web Automation", "Task Scheduling", "API Integration"],
+    icon: <FaRobot size={80} className="text-primary" />,
+    role: "Automation",
+    demoCode: `
+# BUSINESS PROCESS AUTOMATION PIPELINE
+class AutomationPipeline:
+    def __init__(self):
+        self.data_sources = []
+        self.report_queue = []
+    
+    def extract_client_data(self):
+        """Unify data from multiple client systems"""
+        sources = {
+            'crm': self._query_api('https://api.client-crm.com/v1/data'),
+            'database': self._execute_sql('SELECT * FROM daily_metrics'),
+            'spreadsheets': self._parse_excel_files('/reports/')
+        }
+        
+        # Data validation and cleaning
+        validated = self._validate_data(sources)
+        return self._normalize_formats(validated)
+    
+    def generate_automated_reports(self, data):
+        """Create multiple report formats from single data source"""
+        reports = {
+            'excel': self._create_excel_report(data),
+            'pdf': self._generate_pdf_summary(data),
+            'dashboard': self._update_powerbi_dataset(data)
+        }
+        
+        # Queue for delivery
+        for format, report in reports.items():
+            self.report_queue.append({
+                'format': format,
+                'content': report,
+                'timestamp': datetime.now()
+            })
+        
+        return len(self.report_queue)
+    
+    def deliver_reports(self):
+        """Automated delivery to client systems"""
+        delivered = []
+        for report in self.report_queue:
+            # Upload to client cloud storage
+            cloud_path = self._upload_to_s3(report['content'])
+            
+            # Send email notification
+            self._send_email_alert(
+                recipients=['client@email.com'],
+                subject=f"Automated Report - {report['format'].upper()}",
+                attachment_path=cloud_path
+            )
+            
+            delivered.append({
+                'format': report['format'],
+                'status': 'delivered',
+                'path': cloud_path
+            })
+        
+        # Clear queue after successful delivery
+        self.report_queue = []
+        return delivered
+
+# CLIENT USAGE EXAMPLE
+pipeline = AutomationPipeline()
+client_data = pipeline.extract_client_data()
+report_count = pipeline.generate_automated_reports(client_data)
+delivery_confirmation = pipeline.deliver_reports()
+print(f" Automated {report_count} reports, delivered to client.")
+    `,
+    language: "python"
   }
 ];
 
