@@ -200,7 +200,7 @@ function Portfolio() {
           ))}
         </Row>
 
-        <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
+        <Modal show={showModal} onHide={handleCloseModal} size="lg" centered scrollable>
           <Modal.Header closeButton style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)', borderBottomColor: 'rgba(255,255,255,0.1)' }}>
             <Modal.Title>{selectedProject?.title} - Code Demo</Modal.Title>
           </Modal.Header>
@@ -209,7 +209,7 @@ function Portfolio() {
               <strong>Notice:</strong> This is a simplified demonstration snippet. The actual source code is private property of the client and cannot be shared publicly.
             </div>
 
-            <div className="bg-dark p-3 rounded mt-3 position-relative" style={{ border: '1px solid rgba(255,255,255,0.1)' }}>
+            <div className="bg-dark p-3 rounded mt-3 position-relative" style={{ border: '1px solid rgba(255,255,255,0.1)', maxHeight: '40vh', overflowY: 'auto' }}>
               <Badge bg="secondary" className="position-absolute top-0 end-0 m-2">
                 {selectedProject?.language}
               </Badge>
