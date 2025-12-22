@@ -1,54 +1,151 @@
-import React from 'react';
-import { Container, Row, Col, Card, Badge, Button } from 'react-bootstrap';
-import chat_image from './imagens/chat.png';
-import automacao_image from './imagens/automacao.jfif';
-import banco_image from './imagens/banco.jfif';
-import mobile_image from './imagens/developed_mobile_portifolio.png';
+import React, { useState } from 'react';
+import { Container, Row, Col, Card, Badge, Button, Modal } from 'react-bootstrap';
+import { FaComments, FaRobot, FaDatabase, FaMobileAlt, FaLaptopCode } from 'react-icons/fa';
 
 const projects = [
-  {
+  /* {
     id: 1,
     title: "Chat Platform",
     description: "Real-time communication platform built with modern web technologies.",
     tech: ["React", "Node.js", "Socket.io"],
-    img: chat_image,
+    icon: <FaComments size={80} className="text-primary" />,
     role: "Web Platform",
-    demo: "#", // Add your demo link
-    repo: "#"  // Add your repo link
+    demoCode: `
+// CLIENT-SIDE EVENT LISTENER
+socket.on('receive_message', (data) => {
+  setMessages((prev) => [...prev, data]);
+  scrollToBottom();
+});
+
+// SERVER-SIDE EMITTER
+io.on('connection', (socket) => {
+  socket.on('send_message', (data) => {
+    io.emit('receive_message', data);
+  });
+});
+    `,
+    language: "javascript"
   },
   {
     id: 2,
     title: "Service Automation Bot",
     description: "Automated service bot to streamline customer interactions.",
     tech: ["Python", "NLP", "Web Automation"],
-    img: automacao_image,
+    icon: <FaRobot size={80} className="text-primary" />,
     role: "Automation",
-    demo: "#",
-    repo: "#"
+    demoCode: `
+# INTENT RECOGNITION
+def get_intent(user_input):
+    processed_text = preprocess(user_input)
+    prediction = model.predict([processed_text])
+    
+    if prediction.confidence > 0.85:
+        return prediction.label
+    else:
+        return "fallback_intent"
+
+# RESPONSE GENERATION
+def handle_request(intent):
+    responses = load_responses()
+    return responses.get(intent, "I didn't understand that.")
+    `,
+    language: "python"
   },
   {
     id: 3,
     title: "Database Management",
     description: "Robust database architecture and management system optimized for performance.",
     tech: ["SQL", "PostgreSQL", "Data Design"],
-    img: banco_image,
+    icon: <FaDatabase size={80} className="text-primary" />,
     role: "Database",
-    demo: "#",
-    repo: "#"
-  },
+    demoCode: `
+-- OPTIMIZED USER QUERY
+SELECT 
+    u.id, 
+    u.username, 
+    COUNT(o.id) as total_orders
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+WHERE u.status = 'active'
+      AND o.created_at > NOW() - INTERVAL '30 days'
+GROUP BY u.id
+ORDER BY total_orders DESC;
+    `,
+    language: "sql"
+  }, */
   {
     id: 4,
     title: "Mobile App Development",
     description: "Cross-platform mobile application designed for high user engagement.",
     tech: ["React Native", "Mobile", "UX/UI"],
-    img: mobile_image,
+    icon: <FaMobileAlt size={80} className="text-primary" />,
     role: "Mobile App",
-    demo: "#",
-    repo: "#"
+    demoCode: `
+// CUSTOM COMPONENT RENDER
+const UserProfile = ({ user }) => {
+  return (
+    <View style={styles.container}>
+      <Image 
+        source={{ uri: user.avatar }} 
+        style={styles.avatar} 
+      />
+      <Text style={styles.name}>{user.name}</Text>
+      <Button 
+        title="Edit Profile" 
+        onPress={handleEdit} 
+      />
+    </View>
+  );
+};
+    `,
+    language: "jsx"
+  },
+  {
+    id: 5,
+    title: "Web Development",
+    description: "Full-stack web solutions combining responsive frontend design with scalable backend architectures.",
+    tech: ["React", "Node.js", "Express", "PostgreSQL"],
+    icon: <FaLaptopCode size={80} className="text-primary" />,
+    role: "Full Stack",
+    demoCode: `
+// API ROUTE HANDLER (Express)
+router.post('/api/orders', authMiddleware, async (req, res) => {
+  try {
+    const { items, total } = req.body;
+    const order = await OrderService.create({
+      userId: req.user.id,
+      items,
+      total,
+      status: 'pending'
+    });
+    
+    // Trigger real-time update
+    io.to(req.user.id).emit('order_created', order);
+    
+    res.status(201).json(order);
+  } catch (error) {
+    res.status(500).json({ error: 'Order creation failed' });
+  }
+});
+    `,
+    language: "javascript"
   }
 ];
 
 function Portfolio() {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const handleOpenModal = (project) => {
+    setSelectedProject(project);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedProject(null);
+  };
+
   return (
     <section id="portfolio" className="py-5" style={{ backgroundColor: 'var(--surface-color)' }}>
       <Container>
@@ -61,13 +158,8 @@ function Portfolio() {
           {projects.map((project) => (
             <Col key={project.id} lg={4} md={6} sm={12}>
               <Card className="h-100 shadow-sm border-0 hover-scale" style={{ backgroundColor: 'var(--bg-color)', transition: 'transform 0.3s ease' }}>
-                <div style={{ overflow: 'hidden', height: '220px', position: 'relative' }}>
-                  <Card.Img
-                    variant="top"
-                    src={project.img}
-                    alt={`Screenshot of ${project.title}`}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
+                <div className="d-flex align-items-center justify-content-center bg-light" style={{ height: '220px', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
+                  {project.icon}
                 </div>
                 <Card.Body className="d-flex flex-column p-4">
                   <div className="mb-2">
@@ -86,12 +178,13 @@ function Portfolio() {
                     ))}
                   </div>
 
-                  <div className="d-flex gap-2 mt-auto">
-                    <Button variant="outline-primary" className="flex-grow-1" href={project.repo}>
-                      View Code
-                    </Button>
-                    <Button variant="primary" className="flex-grow-1" href={project.demo}>
-                      Live Demo
+                  <div className="mt-auto">
+                    <Button
+                      variant="outline-primary"
+                      className="w-100"
+                      onClick={() => handleOpenModal(project)}
+                    >
+                      View Code Demo
                     </Button>
                   </div>
                 </Card.Body>
@@ -99,6 +192,33 @@ function Portfolio() {
             </Col>
           ))}
         </Row>
+
+        <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
+          <Modal.Header closeButton style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)', borderBottomColor: 'rgba(255,255,255,0.1)' }}>
+            <Modal.Title>{selectedProject?.title} - Code Demo</Modal.Title>
+          </Modal.Header>
+          <Modal.Body style={{ backgroundColor: 'var(--surface-color)', color: 'var(--text-color)' }}>
+            <div className="alert alert-info border-0" role="alert" style={{ backgroundColor: 'rgba(13, 202, 240, 0.15)', color: '#0dcaf0' }}>
+              <strong>Notice:</strong> This is a simplified demonstration snippet. The actual source code is private property of the client and cannot be shared publicly.
+            </div>
+
+            <div className="bg-dark p-3 rounded mt-3 position-relative" style={{ border: '1px solid rgba(255,255,255,0.1)' }}>
+              <Badge bg="secondary" className="position-absolute top-0 end-0 m-2">
+                {selectedProject?.language}
+              </Badge>
+              <pre className="m-0" style={{ color: '#e0e0e0', whiteSpace: 'pre-wrap' }}>
+                <code>
+                  {selectedProject?.demoCode}
+                </code>
+              </pre>
+            </div>
+          </Modal.Body>
+          <Modal.Footer style={{ backgroundColor: 'var(--bg-color)', borderTopColor: 'rgba(255,255,255,0.1)' }}>
+            <Button variant="secondary" onClick={handleCloseModal}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Container>
     </section>
   );

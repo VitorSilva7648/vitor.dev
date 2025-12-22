@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import emailjs from '@emailjs/browser';
-import maps_image from './imagens/maps.jfif';
-import phone_image from './imagens/phone.jfif';
-import mail_image from './imagens/mail.jfif';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 
 const serviceId = 'service_xtcjer6';
 const templateId = 'template_jfq6bu5';
@@ -64,19 +62,19 @@ function Contact() {
               <h4 className="fw-bold mb-4 text-center text-lg-start">Contact Info</h4>
               <div className="d-flex align-items-center mb-4 p-3 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
                 <div className="p-2 rounded-circle me-3 bg-white d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}>
-                  <img src={maps_image} alt="Location" width="20" height="20" />
+                  <FaMapMarkerAlt size={20} className="text-primary" />
                 </div>
                 <span className="text-secondary fw-medium">Uberlândia, MG</span>
               </div>
               <div className="d-flex align-items-center mb-4 p-3 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
                 <div className="p-2 rounded-circle me-3 bg-white d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}>
-                  <img src={phone_image} alt="Phone" width="20" height="20" />
+                  <FaPhone size={20} className="text-primary" />
                 </div>
                 <span className="text-secondary fw-medium">+55 (34) 9 9789-7624</span>
               </div>
               <div className="d-flex align-items-center mb-4 p-3 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
                 <div className="p-2 rounded-circle me-3 bg-white d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}>
-                  <img src={mail_image} alt="Email" width="20" height="20" />
+                  <FaEnvelope size={20} className="text-primary" />
                 </div>
                 <span className="text-secondary fw-medium">vitor.goncalves@ufu.br</span>
               </div>
