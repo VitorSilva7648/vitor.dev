@@ -1,9 +1,6 @@
 import React from 'react';
-import { Container, Row, Col, Carousel, Card } from 'react-bootstrap';
-import database_image from './imagens/database.jpg';
-import web_image from './imagens/web.jfif';
-import cloud_image from './imagens/cloud.jfif';
-import mobile_image from './imagens/developed_mobile.png';
+import { Container, Row, Col, Carousel } from 'react-bootstrap';
+import { FaDatabase, FaLaptopCode, FaCloud, FaMobileAlt } from 'react-icons/fa';
 import './styles/my_styles.css';
 
 function Services() {
@@ -22,32 +19,29 @@ function Services() {
                 {
                   title: "Database Management",
                   desc: "Organizing, optimizing and securing data efficienttly.",
-                  img: database_image
+                  icon: <FaDatabase size={80} className="text-primary" />
                 },
                 {
                   title: "Web Application Development",
                   desc: "Creating interactive and efficient solutions for the web using modern stacks.",
-                  img: web_image
+                  icon: <FaLaptopCode size={80} className="text-primary" />
                 },
                 {
                   title: "Cloud Computing",
                   desc: "Scalable, on-demand access to computing resources over the internet.",
-                  img: cloud_image
+                  icon: <FaCloud size={80} className="text-primary" />
                 },
                 {
                   title: "Mobile App Development",
                   desc: "Creating responsive and efficient mobile apps for iOS and Android.",
-                  img: mobile_image
+                  icon: <FaMobileAlt size={80} className="text-primary" />
                 }
               ].map((service, idx) => (
                 <Carousel.Item key={idx} className="p-5 text-center">
                   <div className="d-flex justify-content-center mb-4">
-                    <img
-                      src={service.img}
-                      alt={service.title}
-                      className="rounded-circle shadow"
-                      style={{ width: '150px', height: '150px', objectFit: 'cover' }}
-                    />
+                    <div className="p-4 rounded-circle bg-light shadow-sm d-flex align-items-center justify-content-center" style={{ width: '150px', height: '150px' }}>
+                      {service.icon}
+                    </div>
                   </div>
                   <h3 className="fw-bold mb-3">{service.title}</h3>
                   <p className="lead text-secondary mx-auto" style={{ maxWidth: '600px' }}>
