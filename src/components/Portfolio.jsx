@@ -1,8 +1,73 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Card, Badge, Button, Modal } from 'react-bootstrap';
-import { FaMobileAlt, FaGlobe, FaRobot, FaDumbbell } from 'react-icons/fa';
+import { Container, Row, Col, Card, Badge, Button, Modal, Carousel } from 'react-bootstrap';
+import { FaMobileAlt, FaGlobe, FaRobot, FaDumbbell, FaHeartbeat, FaSeedling, FaBuilding, FaWhatsapp } from 'react-icons/fa';
 
 const projects = [
+  {
+    id: 9,
+    title: "WhatsApp Flow Automation & Analytics",
+    description: "Built end-to-end WhatsApp Flow (Meta) automations with encrypted protocol integration for appointment/installation scheduling, plus a full-stack operational analytics dashboard with two-level multi-tenant access control.",
+    tech: ["Node.js/TypeScript", "React", "Java/Spring Boot", "Docker", "Kubernetes"],
+    icon: <FaWhatsapp size={80} className="text-primary" />,
+    role: "Full Stack",
+    demoCode: `
+// WHATSAPP FLOW - ENCRYPTED DATA EXCHANGE
+async function decryptFlowRequest(body: EncryptedFlowRequest) {
+  const aesKey = decryptRSA_OAEP(body.encrypted_aes_key);
+  const payload = decryptAES128GCM(
+    body.encrypted_flow_data,
+    aesKey,
+    body.initial_vector
+  );
+  return JSON.parse(payload);
+}
+// Orchestrates scheduling logic against partner API (VTAL)
+    `,
+    language: "typescript"
+  },
+  {
+    id: 8,
+    title: "Enterprise SaaS: Events & Restaurant ERP",
+    description: "Evolutive development of two production SaaS platforms in .NET/C#: a multi-tenant graduation event management system with Itaú boleto/webhook integration, and a restaurant ERP/POS where I led a security refactor enforcing multi-tenant data isolation.",
+    tech: [".NET/C#", "EF Core", "PostgreSQL", "React/TypeScript", "Next.js", "xUnit"],
+    icon: <FaBuilding size={80} className="text-primary" />,
+    role: "Full Stack",
+    demoCode: `
+// MULTI-TENANT DATA ISOLATION (EF Core query filter)
+public class TenantQueryFilter
+{
+    public static void Apply(ModelBuilder builder, int companyId)
+    {
+        builder.Entity<Order>()
+            .HasQueryFilter(o => o.CompanyId == companyId);
+        // Company claim resolved from JWT, applied globally
+        // to eliminate cross-tenant data leakage risk
+    }
+}
+    `,
+    language: "csharp"
+  },
+  {
+    id: 7,
+    title: "Precision Agriculture Suite (Mobile + SaaS)",
+    description: "Led an architectural migration to Feature-Sliced Design across three offline-first React Native apps for the agriculture sector, plus a full-stack precision-agriculture SaaS with satellite-based vegetation index analysis.",
+    tech: ["React Native", "Django REST Framework", "Celery", "Redis", "Google Earth Engine", "SQLite"],
+    icon: <FaSeedling size={80} className="text-primary" />,
+    role: "Mobile Lead & Full Stack",
+    demoCode: `
+# NDVI CALCULATION (Sentinel-2 via Google Earth Engine)
+def calculate_ndvi(image):
+    nir = image.select('B8')
+    red = image.select('B4')
+    ndvi = nir.subtract(red).divide(nir.add(red))
+    return ndvi.rename('NDVI')
+
+# Async pipeline: Celery task fetches Sentinel-2 imagery,
+# computes NDVI/NDWI/EVI for georeferenced field polygons,
+# results synced to offline-first mobile clients (SQLite)
+    `,
+    language: "python"
+  },
   {
     id: 1,
     title: "FitMentoring SaaS Platform",
@@ -22,13 +87,13 @@ export class RolesGuard implements CanActivate {
       context.getHandler(),
       context.getClass(),
     ]);
-    
+
     if (!requiredRoles) {
       return true;
     }
-    
+
     const { user } = context.switchToHttp().getRequest();
-    
+
     // Check if user has required role (Admin, Trainer, Student)
     // Supports multi-tenant context validation
     return requiredRoles.some((role) => user.roles?.includes(role));
@@ -36,6 +101,32 @@ export class RolesGuard implements CanActivate {
 }
     `,
     language: "typescript"
+  },
+  {
+    id: 6,
+    title: "AI-Powered Medical Image Segmentation",
+    description: "Ethics-committee-approved research project (CEP/UFU): end-to-end deep learning pipeline for automatic prostate segmentation on planning CT scans for radiotherapy, developed in collaboration with radiation oncologists and medical physicists at HC-UFU.",
+    tech: ["Python", "PyTorch", "DICOM", "U-Net", "ONNX", "INT8 Quantization"],
+    icon: <FaHeartbeat size={80} className="text-primary" />,
+    role: "ML Research & Development",
+    demoCode: `
+# DICE COEFFICIENT (validation metric)
+def dice_coefficient(pred, target, eps=1e-6):
+    pred = pred.contiguous().view(-1)
+    target = target.contiguous().view(-1)
+
+    intersection = (pred * target).sum()
+    dice = (2. * intersection + eps) / (
+        pred.sum() + target.sum() + eps
+    )
+    return dice
+
+# Best validation Dice achieved: 0.87
+# Pipeline: DICOM series -> HU normalization ->
+# RTSTRUCT contour extraction -> U-Net 2D training ->
+# ONNX export + INT8 quantization for CPU inference
+    `,
+    language: "python"
   },
   {
     id: 2,
@@ -187,6 +278,13 @@ function Portfolio() {
     setSelectedProject(null);
   };
 
+  // Group projects into slides of 3 (matching the original grid card layout)
+  const slidesOf = 3;
+  const slides = [];
+  for (let i = 0; i < projects.length; i += slidesOf) {
+    slides.push(projects.slice(i, i + slidesOf));
+  }
+
   return (
     <section id="portfolio" className="py-5" style={{ backgroundColor: 'var(--surface-color)' }}>
       <Container>
@@ -195,53 +293,61 @@ function Portfolio() {
           <p className="lead text-secondary">A collection of my recent work and experiments</p>
         </div>
 
-        <Row className="g-4">
-          {projects.map((project) => (
-            <Col key={project.id} lg={4} md={6} sm={12}>
-              <Card className="h-100 shadow-sm border-0 hover-scale" style={{ backgroundColor: 'var(--bg-color)', transition: 'transform 0.3s ease' }}>
-                <div className="d-flex align-items-center justify-content-center bg-light" style={{ height: '220px', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
-                  {project.icon}
-                </div>
-                <Card.Body className="d-flex flex-column p-4">
-                  <div className="mb-2">
-                    <Badge bg="primary" className="me-2">{project.role}</Badge>
-                  </div>
-                  <Card.Title className="fw-bold fs-5 mb-3">{project.title}</Card.Title>
-                  <Card.Text className="text-secondary flex-grow-1 mb-4">
-                    {project.description}
-                  </Card.Text>
+        <Carousel indicators={true} interval={null} className="portfolio-carousel">
+          {slides.map((slide, slideIndex) => (
+            <Carousel.Item key={slideIndex}>
+              <div className="px-5 pb-5">
+              <Row className="g-4">
+                {slide.map((project) => (
+                  <Col key={project.id} lg={4} md={6} sm={12}>
+                    <Card className="h-100 shadow-sm border-0 hover-scale" style={{ backgroundColor: 'var(--bg-color)', transition: 'transform 0.3s ease' }}>
+                      <div className="d-flex align-items-center justify-content-center" style={{ height: '220px', backgroundColor: 'var(--surface-color)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                        {project.icon}
+                      </div>
+                      <Card.Body className="d-flex flex-column p-4">
+                        <div className="mb-2">
+                          <Badge bg="primary" className="me-2">{project.role}</Badge>
+                        </div>
+                        <Card.Title className="fw-bold fs-5 mb-3">{project.title}</Card.Title>
+                        <Card.Text className="text-secondary flex-grow-1 mb-4">
+                          {project.description}
+                        </Card.Text>
 
-                  <div className="mb-4">
-                    {project.tech.map((t, index) => (
-                      <Badge key={index} bg="secondary" className="me-1 mb-1 opacity-75 fw-normal">
-                        {t}
-                      </Badge>
-                    ))}
-                  </div>
+                        <div className="mb-4">
+                          {project.tech.map((t, index) => (
+                            <Badge key={index} bg="secondary" className="me-1 mb-1 opacity-75 fw-normal">
+                              {t}
+                            </Badge>
+                          ))}
+                        </div>
 
-                  <div className="mt-auto d-grid gap-2">
-                    {project.link && (
-                      <Button
-                        variant="primary"
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Visit Website
-                      </Button>
-                    )}
-                    <Button
-                      variant="outline-primary"
-                      onClick={() => handleOpenModal(project)}
-                    >
-                      View Code Demo
-                    </Button>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
+                        <div className="mt-auto d-grid gap-2">
+                          {project.link && (
+                            <Button
+                              variant="primary"
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              Visit Website
+                            </Button>
+                          )}
+                          <Button
+                            variant="outline-primary"
+                            onClick={() => handleOpenModal(project)}
+                          >
+                            View Code Demo
+                          </Button>
+                        </div>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+              </div>
+            </Carousel.Item>
           ))}
-        </Row>
+        </Carousel>
 
         <Modal show={showModal} onHide={handleCloseModal} size="lg" centered scrollable>
           <Modal.Header closeButton style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)', borderBottomColor: 'rgba(255,255,255,0.1)' }}>

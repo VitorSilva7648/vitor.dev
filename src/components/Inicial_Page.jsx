@@ -20,7 +20,7 @@ function CustomJumbotron() {
               <Button href="#portfolio" variant="primary" size="lg" className="px-5 py-3 rounded-pill fw-bold shadow">
                 View Work
               </Button>
-              <Button href="#contact" variant="outline-primary" size="lg" className="px-5 py-3 rounded-pill fw-bold" style={{ backgroundColor: 'white', color: 'var(--primary-color)', borderColor: 'var(--primary-color)' }}>
+              <Button href="#contact" variant="outline-primary" size="lg" className="px-5 py-3 rounded-pill fw-bold" style={{ backgroundColor: 'var(--bg-color)', color: 'var(--primary-color)', borderColor: 'var(--primary-color)' }}>
                 Contact Me
               </Button>
             </div>

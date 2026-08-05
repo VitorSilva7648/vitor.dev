@@ -94,11 +94,42 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-color: #ffffff;
-    --surface-color: #f8f9fa;
-    --text-primary: #213547;
-    --text-secondary: #5e6b77;
-  }
+/*
+ * Light palette is applied via the [data-bs-theme="light"] attribute,
+ * which main.jsx sets on <html> based on prefers-color-scheme and keeps in
+ * sync with live OS theme changes. This keeps custom CSS variables and
+ * Bootstrap's own dark/light component styling on the same source of truth.
+ */
+:root[data-bs-theme="light"] {
+  --bg-color: #ffffff;
+  --surface-color: #f8f9fa;
+  --text-primary: #213547;
+  --text-secondary: #5e6b77;
+}
+
+/*
+ * Bootstrap's carousel control arrows and indicator dots are white by
+ * default (meant to sit over dark/photo backgrounds). On our light-theme
+ * background they become invisible, so invert them in light mode - the
+ * same trick Bootstrap's own `.carousel-dark` helper uses.
+ */
+:root[data-bs-theme="light"] .carousel-control-prev-icon,
+:root[data-bs-theme="light"] .carousel-control-next-icon {
+  filter: invert(1) grayscale(100);
+}
+
+:root[data-bs-theme="light"] .carousel-indicators [data-bs-target] {
+  background-color: #000;
+}
+
+/*
+ * Bootstrap positions carousel control icons centered within a 15%-wide
+ * clickable zone on each side, which on a wide carousel (like the projects
+ * grid, several hundred px) pushes the icon far enough inward to overlap
+ * the slide content. Pin the zone to a small fixed width so the icon stays
+ * right at the edge, clear of the card padding.
+ */
+.portfolio-carousel .carousel-control-prev,
+.portfolio-carousel .carousel-control-next {
+  width: 3rem;
 }

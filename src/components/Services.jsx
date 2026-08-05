@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
-import { FaDatabase, FaLaptopCode, FaCloud, FaMobileAlt } from 'react-icons/fa';
+import { FaDatabase, FaLaptopCode, FaCloud, FaMobileAlt, FaServer, FaBrain } from 'react-icons/fa';
 import './styles/my_styles.css';
 
 function Services() {
@@ -14,32 +14,42 @@ function Services() {
 
         <Row className="justify-content-center">
           <Col lg={10}>
-            <Carousel data-bs-theme="dark" className="service-carousel shadow-sm rounded-3 overflow-hidden" style={{ backgroundColor: 'var(--surface-color)' }}>
+            <Carousel className="service-carousel shadow-sm rounded-3 overflow-hidden" style={{ backgroundColor: 'var(--surface-color)' }}>
               {[
                 {
-                  title: "Database Management",
-                  desc: "Organizing, optimizing and securing data efficienttly.",
-                  icon: <FaDatabase size={80} className="text-primary" />
-                },
-                {
                   title: "Web Application Development",
-                  desc: "Creating interactive and efficient solutions for the web using modern stacks.",
+                  desc: "Building interactive, high-performance web apps and SaaS products with modern stacks (React, NestJS, .NET, Django).",
                   icon: <FaLaptopCode size={80} className="text-primary" />
                 },
                 {
-                  title: "Cloud Computing",
-                  desc: "Scalable, on-demand access to computing resources over the internet.",
+                  title: "Mobile App Development",
+                  desc: "Building responsive, production-grade iOS and Android apps with React Native.",
+                  icon: <FaMobileAlt size={80} className="text-primary" />
+                },
+                {
+                  title: "Backend & SaaS Architecture",
+                  desc: "Designing multi-tenant systems, REST APIs, authentication and third-party integrations (payments, WhatsApp, digital signatures).",
+                  icon: <FaServer size={80} className="text-primary" />
+                },
+                {
+                  title: "AI & Machine Learning",
+                  desc: "Building AI-powered features and deep learning pipelines, from LLM integrations to medical image segmentation research.",
+                  icon: <FaBrain size={80} className="text-primary" />
+                },
+                {
+                  title: "Cloud & DevOps",
+                  desc: "Containerizing and deploying applications with Docker, Kubernetes and CI/CD pipelines on AWS and Vercel.",
                   icon: <FaCloud size={80} className="text-primary" />
                 },
                 {
-                  title: "Mobile App Development",
-                  desc: "Creating responsive and efficient mobile apps for iOS and Android.",
-                  icon: <FaMobileAlt size={80} className="text-primary" />
+                  title: "Database Management",
+                  desc: "Organizing, optimizing and securing relational and NoSQL data efficiently.",
+                  icon: <FaDatabase size={80} className="text-primary" />
                 }
               ].map((service, idx) => (
                 <Carousel.Item key={idx} className="p-5 text-center">
                   <div className="d-flex justify-content-center mb-4">
-                    <div className="p-4 rounded-circle bg-light shadow-sm d-flex align-items-center justify-content-center" style={{ width: '150px', height: '150px' }}>
+                    <div className="p-4 rounded-circle shadow-sm d-flex align-items-center justify-content-center" style={{ width: '150px', height: '150px', backgroundColor: 'var(--surface-color)' }}>
                       {service.icon}
                     </div>
                   </div>

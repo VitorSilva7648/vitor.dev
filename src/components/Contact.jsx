@@ -97,7 +97,7 @@ function Contact() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         className="border-secondary py-2"
-                        style={{ backgroundColor: 'white', color: '#121212' }}
+                        style={{ backgroundColor: 'var(--surface-color)', color: 'var(--text-primary)' }}
                       />
                     </Form.Group>
                   </Col>
@@ -110,7 +110,7 @@ function Contact() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="border-secondary py-2"
-                        style={{ backgroundColor: 'white', color: '#121212' }}
+                        style={{ backgroundColor: 'var(--surface-color)', color: 'var(--text-primary)' }}
                       />
                     </Form.Group>
                   </Col>
@@ -124,7 +124,7 @@ function Contact() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     className="border-secondary py-2"
-                    style={{ backgroundColor: 'white', color: '#121212' }}
+                    style={{ backgroundColor: 'var(--surface-color)', color: 'var(--text-primary)' }}
                   />
                 </Form.Group>
                 <Button variant="primary" type="submit" size="lg" className="w-100 fw-bold py-3 mt-2">Send Message</Button>
