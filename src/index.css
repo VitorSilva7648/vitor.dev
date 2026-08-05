@@ -108,14 +108,23 @@ button:focus-visible {
 }
 
 /*
- * Bootstrap's carousel control arrows and indicator dots are white by
- * default (meant to sit over dark/photo backgrounds). On our light-theme
- * background they become invisible, so invert them in light mode - the
- * same trick Bootstrap's own `.carousel-dark` helper uses.
+ * Bootstrap's carousel control arrows are a plain white SVG (no backdrop),
+ * meant to sit over a photo. Against our flat theme backgrounds that's
+ * either invisible (white icon on light bg) or just low-contrast (white
+ * icon at reduced opacity on a dark-but-not-black surface). Instead of
+ * flipping the icon color per theme, give it a fixed circular backdrop
+ * that guarantees contrast regardless of theme or what's behind it.
  */
-:root[data-bs-theme="light"] .carousel-control-prev-icon,
-:root[data-bs-theme="light"] .carousel-control-next-icon {
-  filter: invert(1) grayscale(100);
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: rgba(100, 108, 255, 0.85);
+  /* var(--primary-color) as a literal, since this file loads before the
+     React-set data-bs-theme attribute in some edge cases */
+  background-color: color-mix(in srgb, var(--primary-color) 85%, transparent);
+  border-radius: 50%;
+  background-size: 60% 60%;
 }
 
 :root[data-bs-theme="light"] .carousel-indicators [data-bs-target] {
