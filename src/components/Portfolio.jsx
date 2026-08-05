@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Badge, Button, Modal, Carousel } from 'react-bootstrap';
 import { FaMobileAlt, FaGlobe, FaRobot, FaDumbbell, FaHeartbeat, FaSeedling, FaBuilding, FaWhatsapp } from 'react-icons/fa';
 
@@ -278,8 +278,22 @@ function Portfolio() {
     setSelectedProject(null);
   };
 
-  // Group projects into slides of 3 (matching the original grid card layout)
-  const slidesOf = 3;
+  // On small screens, show 1 project per slide (full card, no nested
+  // vertical stacking/scrolling inside the carousel); on md+ screens,
+  // group 3 per slide to match the original grid layout.
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  );
+
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 767.98px)');
+    const handleChange = (e) => setIsMobile(e.matches);
+    setIsMobile(mql.matches);
+    mql.addEventListener('change', handleChange);
+    return () => mql.removeEventListener('change', handleChange);
+  }, []);
+
+  const slidesOf = isMobile ? 1 : 3;
   const slides = [];
   for (let i = 0; i < projects.length; i += slidesOf) {
     slides.push(projects.slice(i, i + slidesOf));
@@ -301,7 +315,7 @@ function Portfolio() {
                 {slide.map((project) => (
                   <Col key={project.id} lg={4} md={6} sm={12}>
                     <Card className="h-100 shadow-sm border-0 hover-scale" style={{ backgroundColor: 'var(--bg-color)', transition: 'transform 0.3s ease' }}>
-                      <div className="d-flex align-items-center justify-content-center" style={{ height: '220px', backgroundColor: 'var(--surface-color)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                      <div className="d-flex align-items-center justify-content-center portfolio-icon-box" style={{ backgroundColor: 'var(--surface-color)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                         {project.icon}
                       </div>
                       <Card.Body className="d-flex flex-column p-4">

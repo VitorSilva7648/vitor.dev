@@ -1,3 +1,3 @@
-Comandos: 
+Comandos:
 npm run build
-npm run deployd (É como chamei em package.json)
+npm run deploy
