@@ -155,3 +155,17 @@ button:focus-visible {
     height: 48px;
   }
 }
+
+/* Bootstrap's default carousel control opacity (0.5, 0.9 on hover) is too
+   faint to read comfortably in either theme - raise the baseline. */
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 0.85;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover,
+.carousel-control-prev:focus,
+.carousel-control-next:focus {
+  opacity: 1;
+}
