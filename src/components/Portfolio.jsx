@@ -315,12 +315,12 @@ function Portfolio() {
                 {slide.map((project) => (
                   <Col key={project.id} lg={4} md={6} sm={12}>
                     <Card className="h-100 shadow-sm border-0 hover-scale" style={{ backgroundColor: 'var(--bg-color)', transition: 'transform 0.3s ease' }}>
-                      <div className="d-flex align-items-center justify-content-center portfolio-icon-box" style={{ backgroundColor: 'var(--surface-color)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                        {project.icon}
-                      </div>
                       <Card.Body className="d-flex flex-column p-4">
-                        <div className="mb-2">
-                          <Badge bg="primary" className="me-2">{project.role}</Badge>
+                        <div className="d-flex align-items-center gap-2 mb-3">
+                          <div className="d-flex align-items-center justify-content-center rounded-circle flex-shrink-0 portfolio-icon-badge" style={{ backgroundColor: 'var(--surface-color)' }}>
+                            {React.cloneElement(project.icon, { size: 20 })}
+                          </div>
+                          <Badge bg="primary">{project.role}</Badge>
                         </div>
                         <Card.Title className="fw-bold fs-5 mb-3">{project.title}</Card.Title>
                         <Card.Text className="text-secondary flex-grow-1 mb-4">
